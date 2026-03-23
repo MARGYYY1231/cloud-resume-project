@@ -5,18 +5,23 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build-and-deploy:
+  deploy-frontend:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      # Step 1: Check out your repository
+      - uses: actions/checkout@v3
 
-    - name: Upload frontend to Azure Storage
-      uses: azure/CLI@v1
-      with:
-        azcliversion: 2.46.0
-        inlineScript: |
-          az storage blob upload-batch \
-            --connection-string ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }} \
-            --destination '$web'\
-            --source ./frontend
+      # Step 2: Verify frontend folder exists (optional, for debugging)
+      - name: List frontend folder
+        run: |
+          echo "Listing frontend folder contents..."
+          ls -la ./frontend
+
+      # Step 3: Upload frontend to Azure Storage
+      - name: Upload static site to Azure Storage
+        uses: azure/storage-blob-upload@v1
+        with:
+          connection-string: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+          container-name: '$web'
+          source: './frontend'
