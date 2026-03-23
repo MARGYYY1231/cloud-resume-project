@@ -1,31 +1,46 @@
-name: Deploy Frontend to Azure
+name: Deploy Full Cloud Resume Project
 
 on:
   push:
     branches: [ "main" ]
 
 jobs:
-  deploy-frontend:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out repository
+      # Step 1: Checkout code
       - uses: actions/checkout@v3
 
-      # Step 2: List frontend folder (optional, debugging)
-      - name: List frontend folder
-        run: |
-          echo "Listing frontend folder contents..."
-          ls -la ./frontend
+      # -----------------------------
+      # BACKEND DEPLOYMENT (Azure Functions)
+      # -----------------------------
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
 
-      # Step 3: Upload frontend using Azure CLI
+      - name: Install backend dependencies
+        run: |
+          cd api/CloudResumeAPI
+          pip install -r requirements.txt --target=".python_packages/lib/site-packages"
+
+      - name: Deploy Azure Function
+        uses: azure/functions-action@v1
+        with:
+          app-name: ${{ secrets.AZURE_FUNCTIONAPP_NAME }}           # your Function App name
+          package: './api/CloudResumeAPI'                             # path to backend folder
+          publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+
+      # -----------------------------
+      # FRONTEND DEPLOYMENT (Azure Storage)
+      # -----------------------------
       - name: Upload frontend to Azure Storage
         uses: azure/CLI@v1
         with:
           azcliversion: 2.46.0
           inlineScript: |
-            echo "Uploading frontend files..."
             az storage blob upload-batch \
-              --connection-string "${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}" \
-              --destination \$web \
+              --connection-string ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }} \
+              --destination '$web' \
               --source ./frontend
