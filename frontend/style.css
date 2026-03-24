@@ -195,3 +195,32 @@ li {
   background: linear-gradient(90deg, #38bdf8, #2563eb);
   transition: width 1.5s ease;
 } */
+
+.contact-form{
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #38bdf8;
+  color: white;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.contact-form button:hover {
+  background: #7dd3fc;
+}
+
+/* Response Text */
+#form-response {
+  text-align: center;
+  font-size: 0.9rem;
+}
