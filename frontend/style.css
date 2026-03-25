@@ -2,12 +2,14 @@
   --bg: #0f172a;
   --text: #e2e8f0;
   --card: #1e293b;
+  --nav: #0f172a;
 }
 
 .light {
   --bg: #f8fafc;
   --text: #0f172a;
   --card: #ffffff;
+  --nav: linear-gradient(135deg, #2563eb, #38bdf8);
 }
 
 nav {
@@ -22,7 +24,7 @@ nav {
   position: sticky;
   top: 0;
 
-  background: var(--bg);
+  background: var(--nav);
   z-index: 100;
 
   width: 100%; /* full width */
@@ -93,15 +95,13 @@ h1 {
 }
 
 .contact a {
-  color: #2563eb;
+  color: #38bdf8;
   text-decoration: none;
   transition: 0.3s;
-  text-decoration: underline;
 }
 
 .contact a:hover {
-  color: #1d4ed8;
-  text-decoration: underline;
+  color: #7dd3fc;
 }
 
 /* CARD BASE */
