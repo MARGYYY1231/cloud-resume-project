@@ -46,6 +46,10 @@ nav a:hover {
   color: white;
 }
 
+#theme-toggle:hover {
+  background: #7dd3fc;
+}
+
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
