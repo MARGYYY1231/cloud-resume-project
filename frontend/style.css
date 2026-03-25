@@ -2,14 +2,16 @@
   --bg: #0f172a;
   --text: #e2e8f0;
   --card: #1e293b;
-  --nav: #0f172a;
+  --nav-bg: #0f172a;
+  --link: #38bdf8;
 }
 
 .light {
   --bg: #f8fafc;
   --text: #0f172a;
   --card: #ffffff;
-  --nav: linear-gradient(135deg, #2563eb, #38bdf8);
+  --nav-bg: linear-gradient(135deg, #2563eb, #38bdf8);
+  --link: #2563eb;
 }
 
 nav {
@@ -24,7 +26,8 @@ nav {
   position: sticky;
   top: 0;
 
-  background: var(--nav);
+  background: var(--nav-bg);
+  color: #e2e8f0;
   z-index: 100;
 
   width: 100%; /* full width */
@@ -95,7 +98,7 @@ h1 {
 }
 
 .contact a {
-  color: #38bdf8;
+  color: var(--text);
   text-decoration: none;
   transition: 0.3s;
 }
