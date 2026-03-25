@@ -30,12 +30,23 @@ cards.forEach(card => {
   observer.observe(card);
 });
 
-//TOGGLE THEME
+
+// =======================
+// TOGGLE LIGHT/DARK MODE
+// =======================
 const toggle = document.getElementById("theme-toggle");
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme) {
+  document.body.classList.add(savedTheme);
+  toggle.textContent = savedTheme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode";
+}
 
 toggle.addEventListener("click", () => {
   document.body.classList.toggle("light");
-  toggle.textContent = document.body.classList.contains("light") ? "🌙 Dark Mode" : "☀️ Light Mode";
+  const isLight = document.body.classList.contains("light");
+  localStorage.setItem("theme", isLight ? "light" : "dark");
+  toggle.textContent = isLight ? "🌙 Dark Mode" : "☀️ Light Mode";
 });
 
 // =======================
