@@ -90,17 +90,18 @@ h1 {
   justify-content: center;
   gap: 10px;
   font-size: 0.9rem;
-  text-decoration: underline;
 }
 
 .contact a {
   color: #2563eb;
   text-decoration: none;
   transition: 0.3s;
+  text-decoration: underline;
 }
 
 .contact a:hover {
   color: #1d4ed8;
+  text-decoration: underline;
 }
 
 /* CARD BASE */
