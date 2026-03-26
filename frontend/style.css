@@ -27,7 +27,7 @@ nav {
   top: 0;
 
   background: var(--nav-bg);
-  color: #e2e8f0;
+  
   z-index: 100;
 
   width: 100%; /* full width */
@@ -36,7 +36,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: var(--text);
+  color: var(--link);
   font-weight: bold;
 }
 
@@ -98,7 +98,7 @@ h1 {
 }
 
 .contact a {
-  color: var(--text);
+  color: #38bdf8;
   text-decoration: none;
   transition: 0.3s;
 }
