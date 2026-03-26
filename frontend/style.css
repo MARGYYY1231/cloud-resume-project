@@ -11,6 +11,7 @@
   --text: #0f172a;
   --card: #ffffff;
   --nav-bg: linear-gradient(135deg, #2563eb, #38bdf8);
+  --link: #FFA500;
 }
 
 nav {
