@@ -44,7 +44,10 @@ if (savedTheme) {
 
 toggle.addEventListener("click", () => {
   document.body.classList.toggle("light");
-  const isLight = document.body.classList.contains("light");
+  document.getElementById("nav-bar").classList.toggle("light");
+
+  const isLight = document.body.classList.contains("light") && document.getElementById("nav-bar").classList.contains("light");
+  
   localStorage.setItem("theme", isLight ? "light" : "dark");
   toggle.textContent = isLight ? "🌙 Dark Mode" : "☀️ Light Mode";
 });

@@ -11,7 +11,6 @@
   --text: #0f172a;
   --card: #ffffff;
   --nav-bg: linear-gradient(135deg, #2563eb, #38bdf8);
-  --link: #2563eb;
 }
 
 nav {
@@ -27,7 +26,6 @@ nav {
   top: 0;
 
   background: var(--nav-bg);
-  
   z-index: 100;
 
   width: 100%; /* full width */
@@ -36,7 +34,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: var(--link);
+  color: #e2e8f0;
   font-weight: bold;
 }
 
@@ -98,7 +96,7 @@ h1 {
 }
 
 .contact a {
-  color: #38bdf8;
+  color: var(--link);
   text-decoration: none;
   transition: 0.3s;
 }
